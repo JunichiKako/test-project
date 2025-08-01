@@ -1,9 +1,17 @@
 import { render, screen } from "@testing-library/react"
 import Greet from "./Greet"
 
-test("挨拶が正常にレンダリングされるのか", () => {
+describe('Greet', () => {
+  test("renders correctly", () => {
   render(<Greet />)
-
-  const textElement = screen.getByText(/hello/i)
-  expect(textElement).toBeInTheDocument()
+  const textElemnt = screen.getByText(/hello/i)
+  expect(textElemnt).toBeInTheDocument()
 })
+
+test("renders with a name", () => {
+  render(<Greet name="Jun"/>)
+  const textElemnt = screen.getByText("Hello Jun")
+  expect(textElemnt).toBeInTheDocument()
+})
+})
+
